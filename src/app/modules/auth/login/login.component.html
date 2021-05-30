@@ -1,0 +1,38 @@
+<div class="login-container container" fxFlex="100" fxLayoutAlign="center center">
+  <h1>Вход</h1>
+  <h2>Добро пожаловать!</h2>
+  <mat-card fxFlex="20" fxLayout="row wrap" fxLayoutGap="10px" [formGroup]="loginGroup">
+    <mat-card-header fxFlex="100" >
+      <mat-card-title>Введите свои учетные данные</mat-card-title>
+    </mat-card-header>
+    <mat-card-content fxFlex="100" fxLayout="row wrap" fxLayoutAlign="space-between center" fxLayoutGap="10px" style="margin: 25px 0 !important;">
+      <mat-form-field fxFlex="100">
+        <div fxFlex="100" fxLayout="row wrap">
+          <label for="email">Логин</label>
+          <input matInput id="email" fxFlex="100" type="email" formControlName="Email" autocomplete="off"/>
+        </div>
+        <mat-error *ngIf="loginGroup.get('Email').hasError('required') || (!loginGroup.valid && hasErrors)">
+          Required field
+        </mat-error>
+        <mat-error *ngIf="loginGroup.get('Email').hasError('pattern')">
+          this isn't email
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field fxFlex="100">
+        <div fxFlex="100" fxLayout="row wrap">
+          <label for="password">Пароль</label>
+          <input matInput fxFlex="100" id="password" type="password" formControlName="Password" autocomplete="off"/>
+        </div>
+        <mat-error *ngIf="loginGroup.get('Password').hasError('required')">
+          Required field
+        </mat-error>
+      </mat-form-field>
+      <mat-error *ngIf="hasErrors && loginGroup.valid">
+        Invalid login or password
+      </mat-error>
+    </mat-card-content>
+    <button class="main-btn" mat-button type="submit" (click)="logIn()" [disabled]="loading">
+      Войти
+    </button>
+  </mat-card>
+</div>
