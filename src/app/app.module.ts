@@ -9,26 +9,39 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MaterialModule} from './layout/material/material.module';
 import {LayoutModule} from './layout/layout.module';
 import {MatPasswordStrengthModule} from '@angular-material-extensions/password-strength';
-import { PanelAdminComponent } from './modules/home/panel/panel-admin/panel-admin.component';
-import { PanelManagerCompetencyComponent } from './modules/home/panel/panel-manager-competency/panel-manager-competency.component';
+import {ProfileModule} from './modules/home/profile/profile.module';
+import {AuthModule} from './modules/auth/auth.module';
+import {metaReducers, reducers} from './core/store/reducers';
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
+import {DiagramModule} from './components/diagram/diagram.module';
+import {Effects} from './core/store/effects';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    DiagramComponent,
-    PanelAdminComponent,
-    PanelManagerCompetencyComponent
-  ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    AppRoutingModule,
-    MaterialModule,
-    LayoutModule,
-    MatPasswordStrengthModule,
-  ],
-  providers: [],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent,
+    ],
+    imports: [
+        ProfileModule,
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        AppRoutingModule,
+        MaterialModule,
+        LayoutModule,
+        DiagramModule,
+        MatPasswordStrengthModule,
+        AuthModule,
+        StoreModule.forRoot(reducers, {
+        metaReducers,
+        runtimeChecks: {
+          strictStateImmutability: true,
+          strictActionImmutability: true,
+        }
+      }),
+      EffectsModule.forRoot(Effects),
+    ],
+    exports: [],
+    bootstrap: [AppComponent]
 })
 export class AppModule { }

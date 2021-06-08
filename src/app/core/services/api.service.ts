@@ -5,6 +5,7 @@ import {HttpClient} from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 
 const BASE_URL = environment.serverUrl;
+const MOCK_URL = environment.mockUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -44,6 +45,10 @@ export class ApiService {
       }), catchError(err => {
         return this.handleError(err);
       }));
+  }
+
+  public getFromJSON(url: string): Observable<any> {
+    return this.httpClient.get(`${MOCK_URL}${url}.json`);
   }
 
   private handleError(error: any): Observable<any> {

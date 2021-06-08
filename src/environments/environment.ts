@@ -3,8 +3,11 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
+  appUrl: 'http://localhost:8080',
   production: false,
-  serverUrl: `http://192.168.1.1:4200`,
+  serverUrl: `http://167.172.172.240:8080`,
+  port: '4200',
+  mockUrl: 'assets/mocks/',
 };
 
 /*

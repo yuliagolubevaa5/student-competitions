@@ -4,7 +4,7 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {AuthorizationService} from '../../../core/services/auth.service';
 import {Utils} from '../../../core/utils';
 import {environment} from '../../../../environments/environment';
-import {CurrentUserService} from '../../../core/services/current-user.service';
+import {MatDialog} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-login',
@@ -18,11 +18,9 @@ export class LoginComponent implements OnInit {
   hasErrors = false;
   constructor(
     private fb: FormBuilder,
-    private auth: AuthorizationService,
-    private currentUser: CurrentUserService,
-    private reCaptchaV3Service: ReCaptchaV3Service,
-    private scriptService: ScriptService,
-    private cdr: ChangeDetectorRef
+    // private auth: AuthorizationService,
+    private cdr: ChangeDetectorRef,
+    public dialog: MatDialog
   ) { }
 
   // tslint:disable-next-line:typedef
@@ -30,23 +28,38 @@ export class LoginComponent implements OnInit {
     this.generateForm();
   }
 
-  // tslint:disable-next-line:typedef
-  logIn() {
-    this.loading = true;
-    this.hasErrors = false;
-    if (this.loginGroup.valid) {
-      this.auth.LogIn(this.loginGroup.value).subscribe(_ => {
-        // this.currentUser.setUser(_, true);
-      }, err => {
-        this.loading = false;
-        this.hasErrors = true;
+  openDialog() {
+    this.dialog.open(
+      DialogElementComponent,
+      {
+        width: '100%',
+        height: '',
+        position: {
+        top: '-200px',
+        left: '230px'},
+        hasBackdrop: true,
+        backdropClass: 'dialog-back',
+        panelClass: 'panel'
       });
-      this.cdr.detectChanges();
-    } else {
-      Utils.validateAllFormFields(this.loginGroup);
-      this.loading = false;
-    }
   }
+
+  // tslint:disable-next-line:typedef
+  // logIn() {
+  //   this.loading = true;
+  //   this.hasErrors = false;
+  //   if (this.loginGroup.valid) {
+  //     this.auth.LogIn(this.loginGroup.value).subscribe(_ => {
+  //       // this.currentUser.setUser(_, true);
+  //     }, err => {
+  //       this.loading = false;
+  //       this.hasErrors = true;
+  //     });
+  //     this.cdr.detectChanges();
+  //   } else {
+  //     Utils.validateAllFormFields(this.loginGroup);
+  //     this.loading = false;
+  //   }
+  // }
 
 
   // tslint:disable-next-line:typedef
@@ -58,3 +71,10 @@ export class LoginComponent implements OnInit {
   }
 
 }
+
+@Component({
+  selector: 'app-dialog-element',
+  templateUrl: 'dialog-element.html',
+  styleUrls: ['./dialog.component.scss']
+})
+export class DialogElementComponent {}

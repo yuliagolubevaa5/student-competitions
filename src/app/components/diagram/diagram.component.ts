@@ -13,7 +13,7 @@ import {isPlatformBrowser} from '@angular/common';
 @Component({
   selector: 'app-diagram',
   templateUrl: './diagram.component.html',
-  styleUrls: ['./diagram.component.css']
+  styleUrls: ['./diagram.component.scss']
 })
 export class DiagramComponent implements AfterViewInit {
 
@@ -45,63 +45,41 @@ export class DiagramComponent implements AfterViewInit {
       chart.colors.step = 2;
 
       chart.data = [{
-        name: 'First',
+        name: 'УК',
         children: [
-          { name: 'A1', value: 100 },
-          { name: 'A2', value: 60 }
+          { name: 'УК1', value: 100 },
+          { name: 'УК2', value: 60 }
         ]
       },
         {
-          name: 'Second',
+          name: 'ОПК',
           children: [
-            { name: 'B1', value: 135 },
-            { name: 'B2', value: 98 }
+            { name: 'ОПК1',
+            children: [
+                { name: 'ОПК12', value: 130 },
+              ]
+            },
+            { name: 'ОПК2', value: 98 }
           ]
         },
         {
-          name: 'Third',
+          name: 'ПК',
           children: [
             {
-              name: 'C1',
+              name: 'ПК1',
               children: [
-                { name: 'EE1', value: 130 },
-                { name: 'EE2', value: 87 },
-                { name: 'EE3', value: 55 }
+                { name: 'ПК11', value: 130 },
+                { name: 'ПК12', value: 87 },
               ]
             },
-            { name: 'C2', value: 148 },
+            { name: 'ПК2', value: 148 },
             {
-              name: 'C3', children: [
-                { name: 'CC1', value: 53 },
-                { name: 'CC2', value: 30 }
+              name: 'ПК3', children: [
+                { name: 'ПК31', value: 53 },
+                { name: 'ПК32', value: 30 }
               ]
             },
-            { name: 'C4', value: 26 }
-          ]
-        },
-        {
-          name: 'Fourth',
-          children: [
-            { name: 'D1', value: 415 },
-            { name: 'D2', value: 148 },
-            { name: 'D3', value: 89 }
-          ]
-        },
-        {
-          name: 'Fifth',
-          children: [
-            {
-              name: 'E1',
-              children: [
-                { name: 'EE1', value: 33 },
-                { name: 'EE2', value: 40 },
-                { name: 'EE3', value: 89 }
-              ]
-            },
-            {
-              name: 'E2',
-              value: 148
-            }
+            { name: 'ПК4', value: 26 }
           ]
         }];
 

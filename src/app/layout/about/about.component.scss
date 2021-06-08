@@ -1,0 +1,13 @@
+.about {
+  h1 {
+    font-size: 65px;
+    color: #6771dc;
+  }
+  &-text {
+    margin-right: 20px;
+    font-size: 40px;
+    font-weight: 500;
+    line-height: 55px;
+    color: #222222;
+  }
+}

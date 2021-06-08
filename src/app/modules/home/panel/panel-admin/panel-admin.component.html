@@ -1,1 +1,29 @@
-<p>panel-admin works!</p>
+<mat-tab-group>
+  <mat-tab label="Управление ролями">
+    <mat-card fxFlex="100" fxLayout="row wrap" fxLayoutGap="10px">
+      <div class="teacher-list">
+        <div class="teacher-list-element">
+          <b>Компетенция: 1 уровень</b>
+          <!--          <app-list [typesOfData]="courses$"></app-list>-->
+          <app-list></app-list>
+        </div>
+        <div class="teacher-list-element">
+          <b>Компетенция: 2 уровень</b>
+          <app-list></app-list>
+        </div>
+        <div class="teacher-list-element">
+          <b>Компетенция: 3 уровень</b>
+          <app-list></app-list>
+        </div>
+        <div class="teacher-list-element">
+          <b>Руководитель компетенций</b>
+          <app-list></app-list>
+        </div>
+      </div>
+      <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="flex-end flex-end">
+        <button class="teacher-list-btn-left">Отмена</button>
+        <button class="teacher-list-btn">Прикрепить</button>
+      </div>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>

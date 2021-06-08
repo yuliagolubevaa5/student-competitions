@@ -1,1 +1,55 @@
-<p>profile-teacher works!</p>
+<mat-tab-group [color]="colorToggle" [backgroundColor]="backgroundColorToggle">
+  <mat-tab label="Управление заданиями">
+    <mat-card fxFlex="100" fxLayout="row wrap" fxLayoutGap="10px">
+      <div class="teacher-list" fxFlex="100">
+        <div class="teacher-list-element">
+          <b>Курс</b>
+<!--          <app-list [typesOfData]="courses$"></app-list>-->
+              <app-list></app-list>
+        </div>
+        <div class="teacher-list-element">
+          <b>Задание</b>
+          <app-list></app-list>
+        </div>
+        <div class="teacher-list-element">
+          <b>Компетенция: 1 уровень</b>
+          <app-list></app-list>
+        </div>
+        <div class="teacher-list-element">
+          <b>Компетенция: 2 уровень</b>
+          <app-list></app-list>
+        </div>
+        <div class="teacher-list-element">
+          <b>Компетенция: 3 уровень</b>
+          <app-list></app-list>
+        </div>
+      </div>
+      <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="flex-end flex-end">
+        <button class="teacher-list-btn-left">Отмена</button>
+        <button class="teacher-list-btn">Прикрепить задание</button>
+      </div>
+    </mat-card>
+  </mat-tab>
+  <mat-tab label="Просмотр компетенций студентов">
+    <mat-card fxFlex="100" fxLayout="row wrap" fxLayoutGap="10px">
+      <div class="teacher-list" fxFlex="60">
+        <div class="teacher-list-element">
+          <b>Курс</b>
+          <app-list></app-list>
+        </div>
+        <div class="teacher-list-element">
+          <b>Группа</b>
+          <app-list></app-list>
+        </div>
+        <div class="teacher-list-element">
+          <b>Студент</b>
+          <app-list></app-list>
+        </div>
+      </div>
+      <div>
+        <img src="./assets/img/student-comp.png" alt="">
+      </div>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>
+

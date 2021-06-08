@@ -2,9 +2,8 @@ import {Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {ApiService} from './api.service';
 
-const rootPath = `/api/`;
-
-const getStudentCompetitions = `${rootPath}`;
+const rootPath = `/api/v1`;
+const getStudentCompetitions = `${rootPath}/getCompetenceById`;
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +14,8 @@ export class CompetitionsService {
     private api: ApiService
   ) {}
 
-  public getCompetitions(studentId): Observable<any[]> {
-    return this.api.get(`${getStudentCompetitions}?studentId=${studentId}`);
+  public getCompetenceById(id: '5'): Observable<any> {
+    return this.api.get(`${getStudentCompetitions}?id=${id}`);
   }
 
 }

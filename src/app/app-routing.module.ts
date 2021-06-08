@@ -1,15 +1,18 @@
 import {NgModule} from '@angular/core';
 import {DiagramComponent} from './components/diagram/diagram.component';
 import {RouterModule, Routes} from '@angular/router';
-import {LoginComponent} from './modules/auth/login/login.component';
 import {AuthModule} from './modules/auth/auth.module';
+import {AuthGuard} from './core/guards/auth.guard';
+import {UserGuard} from './core/guards/user.guard';
+import {ProfileModule} from './modules/home/profile/profile.module';
+import {LayoutModule} from './layout/layout.module';
 
 const routes: Routes = [
   { path: 'auth', loadChildren: () => AuthModule },
-  // { path: 'profile', loadChildren: './modules/profile/profile.module#ProfileModule', canActivate: [AuthGuard, UserGuard] },
+  { path: 'profile', loadChildren: () => ProfileModule},
+  { path: 'about', loadChildren: () => LayoutModule},
   // { path: 'panel', loadChildren: './modules/admin.module#PanelModule', canActivate: [AuthGuard, AdminGuard] },
-  {path: 'profile', component: DiagramComponent},
-  { path: '**', redirectTo: '/auth/login'}
+  { path: '**', redirectTo: '/auth/login'},
 ];
 
 @NgModule({

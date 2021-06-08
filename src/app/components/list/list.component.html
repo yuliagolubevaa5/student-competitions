@@ -1,0 +1,13 @@
+<mat-selection-list #lists [multiple]="false">
+  <mat-list-option *ngFor="let data of typesOfData; let i = index"
+                   [value]="data"
+                   (click)="toggleBtn()">
+<!--                   [ngStyle]="toggleBtn()? {'background-color': '#6771dc'} : {}">-->
+    {{data}}
+  </mat-list-option>
+</mat-selection-list>
+
+<p class="selected-option">
+  Вы выбрали: {{lists.selectedOptions.selected[0]?.value}}
+</p>
+

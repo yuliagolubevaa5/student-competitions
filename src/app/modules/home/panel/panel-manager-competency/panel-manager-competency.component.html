@@ -1,1 +1,32 @@
-<p>panel-manager-competency works!</p>
+<mat-tab-group>
+  <mat-tab label="Управление компетенциями">
+    <mat-card fxFlex="100" fxLayout="row wrap" fxLayoutGap="10px">
+      <div class="teacher-list" fxFlex="100">
+        <div class="teacher-list-element" >
+          <b>Курс</b>
+          <app-list></app-list>
+        </div>
+        <div class="teacher-list-element">
+          <b>Компетенция: 1 уровень</b>
+          <app-list></app-list>
+        </div>
+        <div class="teacher-list-element">
+          <b>Компетенция: 2 уровень</b>
+          <app-list></app-list>
+        </div>
+        <div class="teacher-list-element">
+          <b>Компетенция: 3 уровень</b>
+          <app-list></app-list>
+        </div>
+        <div class="teacher-list-element">
+          <b>Задание</b>
+          <app-list></app-list>
+        </div>
+      </div>
+      <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="flex-end flex-end">
+        <button class="teacher-list-btn-left">Отмена</button>
+        <button class="teacher-list-btn">Прикрепить</button>
+      </div>
+    </mat-card>
+  </mat-tab>
+</mat-tab-group>

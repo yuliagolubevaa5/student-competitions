@@ -10,12 +10,23 @@ import {ProfileComponent} from './profile.component';
 import {ProfileRoutingModule} from './profile-routing.module';
 import { ProfileStudentComponent } from './profile-student/profile-student.component';
 import { ProfileTeacherComponent } from './profile-teacher/profile-teacher.component';
+import {DiagramComponent} from '../../../components/diagram/diagram.component';
+import {ListModule} from '../../../components/list/list.module';
+import {metaReducers, reducers} from '../../../core/store/reducers';
+import {StoreModule} from '@ngrx/store';
+import {EffectsModule} from '@ngrx/effects';
+import {CompetitionsEffects} from '../../../core/store/effects/competitions.effects';
+import {DiagramModule} from '../../../components/diagram/diagram.module';
+import {PanelAdminComponent} from '../panel/panel-admin/panel-admin.component';
+import {PanelManagerCompetencyComponent} from '../panel/panel-manager-competency/panel-manager-competency.component';
 
 @NgModule({
   declarations: [
     ProfileComponent,
     ProfileStudentComponent,
-    ProfileTeacherComponent
+    ProfileTeacherComponent,
+    PanelAdminComponent,
+    PanelManagerCompetencyComponent,
   ],
   imports: [
     CommonModule,
@@ -25,11 +36,15 @@ import { ProfileTeacherComponent } from './profile-teacher/profile-teacher.compo
     FormsModule,
     RouterModule,
     ProfileRoutingModule,
+    DiagramModule,
     CoreModule,
-    MatPasswordStrengthModule.forRoot(),
+    ListModule,
+    StoreModule.forFeature('CompetenceModule', reducers, {metaReducers}),
+    EffectsModule.forFeature([
+      CompetitionsEffects,
+    ])
   ],
-  providers: [
-    // UserinfoService
-  ]
+  exports: [
+  ],
 })
 export class ProfileModule { }

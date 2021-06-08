@@ -1,0 +1,112 @@
+p, b {
+  color: #222222;
+}
+
+.user-group b,
+.university b,
+.mat-header-cell{
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
+  color: #222222;
+}
+
+.mat-header-cell {
+  color: white !important;
+}
+
+.mat-header-row {
+  background-color: #6771dc;
+}
+
+.mat-cell {
+  font-family: Roboto;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 16px;
+  line-height: 28px;
+  color: #333333;
+}
+
+.grey-text {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 28px;
+  color: #666666;
+}
+
+.user {
+  &-age {
+    margin: 0;
+  }
+
+  &-info-main {
+    p {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 18px;
+      color: #999999;
+    }
+    b {
+      margin-right: 20px;
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 28px;
+    }
+  }
+}
+
+.competitions h3 {
+  margin-right: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+  table {
+    width: 90%;
+  }
+
+  tr.example-detail-row {
+    height: 0;
+  }
+
+  .example-element-row {
+    cursor: pointer;
+  }
+
+  tr.example-element-row:not(.example-expanded-row):hover {
+    background: whitesmoke;
+  }
+
+  tr.example-element-row:not(.example-expanded-row):active {
+    background: #efefef;
+  }
+
+  .example-element-row td {
+    border-bottom-width: 0;
+  }
+
+  .example-element-detail {
+    overflow: hidden;
+    display: flex;
+  }
+
+  .example-element-symbol {
+    font-weight: bold;
+    font-size: 40px;
+    line-height: normal;
+  }
+
+  .example-element-description {
+    padding: 16px;
+  }
+
+  .example-element-description-attribution {
+    opacity: 0.5;
+  }
+
