@@ -8,7 +8,7 @@ export interface IState {
   loading: boolean;
   data: ICompetence;
 }
-export function selectKpCardId(a: ICompetence): number {
+export function selectKpCardId(a: ICompetence): string {
   return a.id;
 }
 

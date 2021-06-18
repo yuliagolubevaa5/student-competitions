@@ -5,8 +5,10 @@ import {Router} from '@angular/router';
 import {takeUntil} from 'rxjs/operators';
 import * as fromModuleStore from '../../../../core/store/reducers';
 import * as fromActions from '../../../../core/store/actions/compeitions.actions';
+import * as fromActionsUser from '../../../../core/store/actions/user.actions';
 import {Observable, Subject} from 'rxjs';
 import {ICompetence} from '../../../../core/models/competence.model';
+import {IUser} from '../../../../core/models/user.model';
 
 @Component({
   selector: 'app-profile-student',
@@ -25,18 +27,22 @@ export class ProfileStudentComponent implements OnInit, OnDestroy {
   columnsToDisplay = ['Номер', 'Задание', 'Компетенция'];
   expandedElement: PeriodicElement | null;
   loading$: Observable<boolean>;
+  loadingUser$: Observable<boolean>;
   id;
   competence: ICompetence;
+  user: IUser;
   // competence: ICompetence[] = [];
   private unsubscribe = new Subject<boolean>();
+
 
   constructor(
     private router: Router,
     private store: Store<fromModuleStore.ICompetenceState>,
   ) {
-    this.subscribeEvents();
-    console.log(this.competence);
+    this.subscribeEventsDiagram();
+    this.subscribeEventsUser();
     this.store.dispatch(fromActions.loadCompetenceById({id: '5'}));
+    this.store.dispatch(fromActionsUser.loadUserById({id: '5'}));
   }
 
   ngOnDestroy(): void {
@@ -47,13 +53,22 @@ export class ProfileStudentComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
   }
 
-  private subscribeEvents() {
+  private subscribeEventsDiagram() {
     this.loading$ = this.store.pipe(takeUntil(this.unsubscribe), select(fromModuleStore.getCompetenceLoading));
     this.store.pipe(takeUntil(this.unsubscribe), select(fromModuleStore.getCompetence))
       .subscribe(item => {
         if (item) {
           this.competence = item;
-          console.log(this.competence);
+        }
+      });
+  }
+
+  private subscribeEventsUser() {
+    this.loadingUser$ = this.store.pipe(takeUntil(this.unsubscribe), select(fromModuleStore.getUserLoading));
+    this.store.pipe(takeUntil(this.unsubscribe), select(fromModuleStore.getUser))
+      .subscribe(item => {
+        if (item) {
+          this.user = item;
         }
       });
   }
@@ -70,33 +85,38 @@ export interface PeriodicElement {
 const ELEMENT_DATA: PeriodicElement[] = [
   {
     Номер: 1,
-    Задание: 'Наименование задания',
-    Компетенция: 'Аббревиатура компетенции',
+    Задание: 'Проверка после лекции',
+    Компетенция: 'ПК-1, ОПК-1.1',
     description: `Описание задания и связанной/связанными с ним копетенцией/компетенциями`
   }, {
     Номер: 2,
-    Задание: 'Наименование задания',
-    Компетенция: 'Аббревиатура компетенции',
+    Задание: 'Лабораторная работа №5',
+    Компетенция: 'ОПК-1.1',
     description: `Описание задания и связанной/связанными с ним копетенцией/компетенциями`
   }, {
     Номер: 3,
-    Задание: 'Наименование задания',
-    Компетенция: 'Аббревиатура компетенции',
+    Задание: 'Лабораторная работа №4',
+    Компетенция: 'ОПК-3',
     description: `Описание задания и связанной/связанными с ним копетенцией/компетенциями`
   }, {
     Номер: 4,
-    Задание: 'Наименование задания',
-    Компетенция: 'Аббревиатура компетенции',
+    Задание: 'Лабораторная работа №3',
+    Компетенция: 'ОПК-1, ОПК-2',
     description: `Описание задания и связанной/связанными с ним копетенцией/компетенциями`
   }, {
     Номер: 5,
-    Задание: 'Наименование задания',
-    Компетенция: 'Аббревиатура компетенции',
+    Задание: 'Распарсить БД SDO',
+    Компетенция: 'ПК-1',
     description: `Описание задания и связанной/связанными с ним копетенцией/компетенциями`
   }, {
     Номер: 6,
-    Задание: 'Наименование задания',
-    Компетенция: 'Аббревиатура компетенции',
+    Задание: 'Ваша соц сеть',
+    Компетенция: 'ОПК-1',
+    description: `Описание задания и связанной/связанными с ним копетенцией/компетенциями`
+  }, {
+    Номер: 7,
+    Задание: 'БД',
+    Компетенция: 'ОПК-1, ОПК-3',
     description: `Описание задания и связанной/связанными с ним копетенцией/компетенциями`
   },
 ];

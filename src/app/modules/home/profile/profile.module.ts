@@ -19,6 +19,14 @@ import {CompetitionsEffects} from '../../../core/store/effects/competitions.effe
 import {DiagramModule} from '../../../components/diagram/diagram.module';
 import {PanelAdminComponent} from '../panel/panel-admin/panel-admin.component';
 import {PanelManagerCompetencyComponent} from '../panel/panel-manager-competency/panel-manager-competency.component';
+import {List2Module} from '../../../components/list2/list2.module';
+import {List3Module} from '../../../components/list3/list3.module';
+import {List4Module} from '../../../components/list4/list4.module';
+import {List5Module} from '../../../components/list5/list5.module';
+import {List6Module} from '../../../components/list6/list6.module';
+import {List7Module} from '../../../components/list7/list7.module';
+import {List8Module} from '../../../components/list8/list8.module';
+import {List9Module} from '../../../components/list9/list9.module';
 
 @NgModule({
   declarations: [
@@ -39,6 +47,14 @@ import {PanelManagerCompetencyComponent} from '../panel/panel-manager-competency
     DiagramModule,
     CoreModule,
     ListModule,
+    List2Module,
+    List3Module,
+    List4Module,
+    List5Module,
+    List6Module,
+    List7Module,
+    List8Module,
+    List9Module,
     StoreModule.forFeature('CompetenceModule', reducers, {metaReducers}),
     EffectsModule.forFeature([
       CompetitionsEffects,

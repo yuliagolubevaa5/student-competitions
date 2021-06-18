@@ -21,8 +21,6 @@ export class DiagramComponent implements AfterViewInit {
 
   constructor(@Inject(PLATFORM_ID) private platformId, private zone: NgZone) {}
 
-  // Run the function only in the browser
-  // tslint:disable-next-line:typedef
   browserOnly(f: () => void) {
     if (isPlatformBrowser(this.platformId)) {
       this.zone.runOutsideAngular(() => {
@@ -33,15 +31,13 @@ export class DiagramComponent implements AfterViewInit {
 
   // tslint:disable-next-line:typedef
   ngAfterViewInit() {
-    // Chart code goes in here
+
     this.browserOnly(() => {
       am4core.useTheme(am4themes_animated);
 
       const chart = am4core.create('chartdiv', am4plugins.Sunburst);
 
       chart.radius = am4core.percent(100);
-
-      // Make colors more distinctive
       chart.colors.step = 2;
 
       chart.data = [{
@@ -103,5 +99,6 @@ export class DiagramComponent implements AfterViewInit {
       this.chart = chart;
     });
   }
+
 
 }

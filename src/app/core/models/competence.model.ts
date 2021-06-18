@@ -1,11 +1,9 @@
 export interface ICompetence {
-  id: number;
+  id: string;
   rating: number;
   taskid: string;
   userid: string;
   email: string;
   login: string;
 }
-// export interface ICompetence {
-//   ICompetence: [];
-// }
+

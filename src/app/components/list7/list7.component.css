@@ -1,0 +1,28 @@
+.mat-list-option:hover {
+  background-color: whitesmoke;
+}
+
+.mat-list-option:active,
+.mat-list-option:visited {
+  background-color: #6771dc;
+  opacity: 0.6;
+  color: white;
+}
+
+.selected-option{
+  background-color: #6771dc;
+  color: white;
+  display: flex;
+  height: 40px;
+  font-weight: 500;
+  font-size: 16px;
+  padding: 10px;
+  align-items: center;
+}
+
+.list {
+  height: 530px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

@@ -1,5 +1,8 @@
 <mat-tab-group [color]="colorToggle" [backgroundColor]="backgroundColorToggle">
   <mat-tab label="Управление заданиями">
+    <div class="teacher-p">
+      <p>Выберите задание и компетенцию/компетенции, которую/которые хотите связать:</p>
+    </div>
     <mat-card fxFlex="100" fxLayout="row wrap" fxLayoutGap="10px">
       <div class="teacher-list" fxFlex="100">
         <div class="teacher-list-element">
@@ -9,19 +12,19 @@
         </div>
         <div class="teacher-list-element">
           <b>Задание</b>
-          <app-list></app-list>
+          <app-list2></app-list2>
         </div>
         <div class="teacher-list-element">
           <b>Компетенция: 1 уровень</b>
-          <app-list></app-list>
+          <app-list3></app-list3>
         </div>
         <div class="teacher-list-element">
           <b>Компетенция: 2 уровень</b>
-          <app-list></app-list>
+          <app-list4></app-list4>
         </div>
         <div class="teacher-list-element">
           <b>Компетенция: 3 уровень</b>
-          <app-list></app-list>
+          <app-list5></app-list5>
         </div>
       </div>
       <div fxFlex="100" fxLayout="row wrap" fxLayoutAlign="flex-end flex-end">
@@ -31,19 +34,22 @@
     </mat-card>
   </mat-tab>
   <mat-tab label="Просмотр компетенций студентов">
+    <div class="teacher-p">
+      <p>Выберите студента для просмотра его диаграммы:</p>
+    </div>
     <mat-card fxFlex="100" fxLayout="row wrap" fxLayoutGap="10px">
       <div class="teacher-list" fxFlex="60">
         <div class="teacher-list-element">
           <b>Курс</b>
-          <app-list></app-list>
+          <app-list6></app-list6>
         </div>
         <div class="teacher-list-element">
           <b>Группа</b>
-          <app-list></app-list>
+          <app-list7></app-list7>
         </div>
         <div class="teacher-list-element">
           <b>Студент</b>
-          <app-list></app-list>
+          <app-list8></app-list8>
         </div>
       </div>
       <div>

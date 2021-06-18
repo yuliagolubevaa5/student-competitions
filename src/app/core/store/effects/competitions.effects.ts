@@ -32,7 +32,7 @@ export class CompetitionsEffects {
 
   addCp() {
     return {
-      id: null,
+      id: '',
       rating: null,
       taskid: '',
       userid: '',
